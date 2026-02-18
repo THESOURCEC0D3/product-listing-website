@@ -1,4 +1,7 @@
 export const createWhatsAppOrderLink = (product, phone) => {
+    const baseUrl = window.location.origin;
+    const imageUrl = `${baseUrl}${product.image}`;
+
   const message = `
 Hello 👋
 
@@ -9,7 +12,7 @@ Price: R${product.price.toLocaleString()}
 Product ID: ${product.id}
 
 Product Image:
-${product.image}
+${imageUrl}
 
 Please confirm availability.
   `;
