@@ -1,4 +1,4 @@
-import Header from "../components/header";
+import Header from "../components/Header";
 import ProductList from "../components/products/ProductList";
 import { products } from "../data/products";
 
