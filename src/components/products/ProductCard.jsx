@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
         {product.inStock ? "In Stock" : "Out of Stock"}
       </p>
       <a
-        href={createWhatsAppOrderLink(product, 2347014743428)}
+        href={createWhatsAppOrderLink(product, 2348065429005)}
         className="p-3 text-black bg-gray-200 rounded-2xl"
       >
         Get Product
