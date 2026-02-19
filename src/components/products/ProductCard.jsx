@@ -8,9 +8,11 @@ const ProductCard = ({ product }) => {
       <img src={product.image} alt={product.name} className="size-52" />
       <h2 className="text-black">{product.name}</h2>
       <p className="text-black">{product.price.toLocaleString()}</p>
-      <p className="text-black">{product.inStock ? "In Stock" : "Out of Stock"}</p>
+      <p className="text-black">
+        {product.inStock ? "In Stock" : "Out of Stock"}
+      </p>
       <a
-        href={createWhatsAppOrderLink(product, 2348065429005)}
+        href={createWhatsAppOrderLink(product, 2347014743428)}
         className="p-3 text-black bg-gray-200 rounded-2xl"
       >
         Get Product

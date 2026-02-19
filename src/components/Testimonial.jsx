@@ -23,7 +23,7 @@ const Testimonials = () => {
             x: ["0%", "-50%"], // Move from start to the half-way point
           }}
           transition={{
-            duration: 30, // Adjust speed (lower is faster)
+            duration: 35, // Adjust speed (lower is faster)
             ease: "linear", // Crucial for seamless movement
             repeat: Infinity, // Loop forever
           }}
