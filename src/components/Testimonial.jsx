@@ -22,7 +22,12 @@ const Testimonials = () => {
   }, [controls]);
 
   return (
-    <section className="py-20 bg-purple-100 overflow-hidden">
+    <motion.section
+    initial={{opacity: 0, y: 80}}
+    whileInView={{opacity: 1, y:0}}
+    transition={{duration: 0.8, ease: "easeOut"}}
+    viewport={{once: true, amount: 0.1}}
+    className="py-20 bg-purple-100 overflow-hidden">
       <div className="text-center mb-12 px-6">
         <h2 className="text-4xl md:text-4xl font-bold text-black">
           What Our Customers Say
@@ -67,7 +72,7 @@ const Testimonials = () => {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-15 bg-gradient-to-r from-gray-50 to-transparent"></div>
         <div className="pointer-events-none absolute inset-y-0 right-0 w-15 bg-gradient-to-l from-gray-50 to-transparent"></div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
