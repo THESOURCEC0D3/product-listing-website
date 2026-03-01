@@ -1,5 +1,6 @@
 import Header from "../components/Header.jsx";
 import Hero from "../components/Hero.jsx";
+import Services from "../components/Services.jsx";
 import WhyChooseUs from "../components/WhyChooseUs.jsx";
 import ProductList from "../components/products/ProductList.jsx";
 import Footer from "../components/Footer.jsx";
@@ -11,6 +12,7 @@ const Home = () => {
     <>
       <Header />
       <Hero />
+      <Services />
       <WhyChooseUs />
       <Testimonials />
       <Footer />
