@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid md:grid-cols-1 gap-8 bg-amber-300-50 p-8 rounded-2xl flex-1"
+            className="grid md:grid-cols-1 gap-8 bg-amber-300-50 rounded-2xl flex-1"
           >
             {features.map((item, index) => (
               <motion.div

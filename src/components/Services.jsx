@@ -63,7 +63,7 @@ export default function Services() {
                   key={`image-${selectedIndex}`}
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
                   src={slide.image}
                   alt={slide.title}
                   className="w-full md:w-1/2 rounded-xl shadow-lg"
@@ -74,7 +74,7 @@ export default function Services() {
                   key={`text-${selectedIndex}`}
                   initial={{ x: 100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
                   className="md:w-1/2 text-center md:text-left"
                 >
                   <h3 className="text-2xl font-semibold mb-4 text-black">{slide.title}</h3>
