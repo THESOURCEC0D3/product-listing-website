@@ -72,10 +72,10 @@ const WhyChooseUs = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 cursor-pointer size-full"
+                className="bg-white w-full p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 cursor-pointer size-full"
               >
-                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <h3 className="text-xl font-semibold mb-3 text-black">{item.title}</h3>
+                <p className="text-black text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>

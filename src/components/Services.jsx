@@ -48,7 +48,7 @@ export default function Services() {
 
   return (
     <section className="py-20 bg-gray-50">
-      <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 text-black">Our Services</h2>
 
       <div className="relative max-w-6xl mx-auto">
         <div className="overflow-hidden" ref={emblaRef}>
@@ -77,7 +77,7 @@ export default function Services() {
                   transition={{ duration: 0.6 }}
                   className="md:w-1/2 text-center md:text-left"
                 >
-                  <h3 className="text-2xl font-semibold mb-4">{slide.title}</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-black">{slide.title}</h3>
                   <p className="text-gray-600">{slide.description}</p>
                 </motion.div>
               </div>
