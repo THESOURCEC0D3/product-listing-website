@@ -6,11 +6,15 @@ import ProductList from "../components/products/ProductList.jsx";
 import Footer from "../components/Footer.jsx";
 import { products } from "../data/products.js";
 import Testimonials from "../components/Testimonial.jsx";
+import MobileSidebar from "../components/MobileSidebar";
+import { useState } from "react";
 
 const Home = () => {
+   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Header />
+      <Header setIsOpen={setIsOpen} />
+      <MobileSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <Hero />
       <Services />
       <WhyChooseUs />
