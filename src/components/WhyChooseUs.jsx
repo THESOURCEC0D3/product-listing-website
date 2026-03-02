@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
         <h2 className="text-4xl font-bold text-black text-center">
           Why Choose Us
         </h2>
-        <div className="max-w-7xl mx-auto text-center flex flex-col md:flex-row items-center gap-12 p-8">
+        <div className="max-w-7xl mx-auto text-center flex flex-col md:flex-row items-center gap-12 p-2">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
