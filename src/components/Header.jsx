@@ -3,7 +3,7 @@ import { Menu } from "lucide-react";
 
 const Header = ({setIsOpen}) => {
   return (
-    <div className="flex justify-between items-center fixed inset-x-0 p-5 bg-white/50 backdrop-blur-md shadow-xl shadow-purple-400 z-30 ">
+    <div className="flex justify-between items-center fixed inset-x-0 p-5 bg-white/50 backdrop-blur-md shadow-lg shadow-purple-400 z-30 ">
       <Link
         to="/"
         className="text-4xl md:text-5xl font-bold text-purple-600 text-shadow-lg text-shadow-gray-500"
