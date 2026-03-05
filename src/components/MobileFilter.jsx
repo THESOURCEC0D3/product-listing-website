@@ -17,7 +17,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
 
           {/* Slide Panel */}
           <motion.div
-            className="fixed top-0 left-0 h-full w-80 bg-white z-50 shadow-xl p-6 overflow-y-auto"
+            className="fixed top-0 left-0 h-full w-110 bg-white z-50 shadow-xl p-6 overflow-y-auto"
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
@@ -60,51 +60,219 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                     />
                     Perfumes
                   </label>
+                  {filters.category.includes("Perfumes") && (
+                    <div className="ml-5 mt-2 space-y-2">
+                      <p className="text-sm font-medium text-black">
+                        Gender(Optional)
+                      </p>
+
+                      <div className="flex gap-3">
+                        <div>
+                          <label className="flex items-center gap-2 text-black">
+                            <input
+                              type="checkbox"
+                              checked={filters.gender.includes("Male")}
+                              onChange={() => {
+                                if (filters.gender.includes("Male")) {
+                                  setFilters({
+                                    ...filters,
+                                    gender: filters.gender.filter(
+                                      (g) => g !== "Male",
+                                    ),
+                                  });
+                                } else {
+                                  setFilters({
+                                    ...filters,
+                                    gender: [...filters.gender, "Male"],
+                                  });
+                                }
+                              }}
+                            />
+                            Male
+                          </label>
+                          {filters.gender.includes("Male") && (
+                            <div className="ml-5 mt-2 space-y-2 ">
+                              <p className="text-sm font-medium text-black">
+                                Male Scents (Optional)
+                              </p>
+                              <div className="">
+                                {[
+                                  "Fresh Aquatic",
+                                  "Woody",
+                                  "Spicy",
+                                  "Sweet",
+                                ].map((scent) => (
+                                  <label
+                                    key={scent}
+                                    className="flex items-center gap-2 text-black"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={filters.scent.includes(scent)}
+                                      onChange={() => {
+                                        if (filters.scent.includes(scent)) {
+                                          setFilters({
+                                            ...filters,
+                                            scent: filters.scent.filter(
+                                              (s) => s !== scent,
+                                            ),
+                                          });
+                                        } else {
+                                          setFilters({
+                                            ...filters,
+                                            scent: [...filters.scent, scent],
+                                          });
+                                        }
+                                      }}
+                                    />
+                                    {scent}
+                                  </label>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="flex items-center gap-2 text-black">
+                            <input
+                              type="checkbox"
+                              checked={filters.gender.includes("Female")}
+                              onChange={() => {
+                                if (filters.gender.includes("Female")) {
+                                  setFilters({
+                                    ...filters,
+                                    gender: filters.gender.filter(
+                                      (g) => g !== "Female",
+                                    ),
+                                  });
+                                } else {
+                                  setFilters({
+                                    ...filters,
+                                    gender: [...filters.gender, "Female"],
+                                  });
+                                }
+                              }}
+                            />
+                            Female
+                          </label>
+                          {filters.gender.includes("Female") && (
+                            <div className="ml-5 mt-2 space-y-2 ">
+                              <p className="text-sm font-medium text-black">
+                                Female Scents (Optional)
+                              </p>
+                              <div className="">
+                                {[
+                                  "Floral",
+                                  "Fruity",
+                                  "Sweet",
+                                ].map((scent) => (
+                                  <label
+                                    key={scent}
+                                    className="flex items-center gap-2 text-black"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={filters.scent.includes(scent)}
+                                      onChange={() => {
+                                        if (filters.scent.includes(scent)) {
+                                          setFilters({
+                                            ...filters,
+                                            scent: filters.scent.filter(
+                                              (s) => s !== scent,
+                                            ),
+                                          });
+                                        } else {
+                                          setFilters({
+                                            ...filters,
+                                            scent: [...filters.scent, scent],
+                                          });
+                                        }
+                                      }}
+                                    />
+                                    {scent}
+                                  </label>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="flex items-center gap-2 text-black">
+                            <input
+                              type="checkbox"
+                              checked={filters.gender.includes("Unisex")}
+                              onChange={() => {
+                                if (filters.gender.includes("Unisex")) {
+                                  setFilters({
+                                    ...filters,
+                                    gender: filters.gender.filter(
+                                      (g) => g !== "Unisex",
+                                    ),
+                                  });
+                                } else {
+                                  setFilters({
+                                    ...filters,
+                                    gender: [...filters.gender, "Unisex"],
+                                  });
+                                }
+                              }}
+                            />
+                            Unisex
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
-                      checked={filters.category.includes("Body Mists")}
+                      checked={filters.category.includes("Body Sprays")}
                       onChange={() => {
-                        if (filters.category.includes("Body Mists")) {
+                        if (filters.category.includes("Body Sprays")) {
                           setFilters({
                             ...filters,
                             category: filters.category.filter(
-                              (item) => item !== "Body Mists",
+                              (item) => item !== "Body Sprays",
                             ),
                           });
                         } else {
                           setFilters({
                             ...filters,
-                            category: [...filters.category, "Body Mists"],
+                            category: [...filters.category, "Body Sprays"],
                           });
                         }
                       }}
                     />
-                    Body Mists
+                    Body Sprays
                   </label>
 
                   <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
-                      checked={filters.category.includes("Skincare")}
+                      checked={filters.category.includes("Skincare Products")}
                       onChange={() => {
-                        if (filters.category.includes("Skincare")) {
+                        if (filters.category.includes("Skincare Products")) {
                           setFilters({
                             ...filters,
                             category: filters.category.filter(
-                              (item) => item !== "Skincare",
+                              (item) => item !== "Skincare Products",
                             ),
                           });
                         } else {
                           setFilters({
                             ...filters,
-                            category: [...filters.category, "Skincare"],
+                            category: [
+                              ...filters.category,
+                              "Skincare Products",
+                            ],
                           });
                         }
                       }}
                     />
-                    Skincare
+                    Skincare Products
                   </label>
                 </div>
               </div>

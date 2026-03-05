@@ -12,6 +12,8 @@ const Products = () => {
     const [filters, setFilters] = useState({
       category: [],
       brand: [],
+      gender: [],
+      scent: [],
     });
 
      const filteredProducts = products.filter((product) => {
@@ -22,7 +24,19 @@ const Products = () => {
        const brandMatch =
          filters.brand.length === 0 || filters.brand.includes(product.brand);
 
-       return categoryMatch && brandMatch;
+         const genderMatch =
+           filters.gender.length === 0 ||
+           filters.gender.includes(product.gender);
+
+          const scentMatch =
+            filters.scent.length === 0 ||
+            filters.scent.some((selectedScent) =>
+              product.scent
+                ?.toLowerCase()
+                .includes(selectedScent.toLowerCase()),
+            );
+
+       return categoryMatch && brandMatch && genderMatch && scentMatch;
      });
 
   return (

@@ -6,6 +6,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/perfume1.avif",
+    gender: "Male",
+    scent: "Fresh Aquatic"
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/Afnan-9pm.webp",
+    gender: "Male",
+    scent: "Sweet Vanilla Amber"
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/DiorSauvage.avif",
+    gender: "Male",
+    scent: "Fresh Spicy"
   },
   {
     id: 4,
@@ -30,6 +36,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/LataffaAsad.avif",
+    gender: "Male",
+    scent: "Warm Spicy"
   },
   {
     id: 5,
@@ -38,6 +46,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/clubdenuitintensemen.jpg",
+    gender: "Male",
+    scent: "Wood Citrus"
   },
   {
     id: 6,
@@ -46,6 +56,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/Yves-Saint-Laurent-Y.avif",
+    gender: "Male",
+    scent: "Fresh Aromatic"
   },
   {
     id: 7,
@@ -54,6 +66,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/versace-eros-EDP.jpg",
+    gender: "Male",
+    scent: "Aromatic Woody"
   },
   {
     id: 8,
@@ -62,6 +76,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/Zara-Red.webp",
+    gender: "Female",
+    scent: "Sweet Vanilla"
   },
   {
     id: 9,
@@ -70,6 +86,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/Burberry.avif",
+    gender: "Female",
+    scent: "Fruity Sweet"
   },
   {
     id: 10,
@@ -78,6 +96,8 @@ export const products = [
     category: "Perfumes",
     inStock: true,
     image: "/assets/Carolina-Herrera.webp",
+    gender: "Female",
+    scent: "Floral Sweet"
   },
   {
     id: 11,
