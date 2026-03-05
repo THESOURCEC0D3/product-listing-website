@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-const MobileFilter = ({ isOpen, onClose }) => {
+const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -36,17 +36,74 @@ const MobileFilter = ({ isOpen, onClose }) => {
               {/* Category */}
               <div>
                 <h3 className="font-medium mb-2">Category</h3>
+
                 <div className="space-y-2">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={filters.category.includes("Perfumes")}
+                      onChange={() => {
+                        if (filters.category.includes("Perfumes")) {
+                          setFilters({
+                            ...filters,
+                            category: filters.category.filter(
+                              (item) => item !== "Perfumes",
+                            ),
+                          });
+                        } else {
+                          setFilters({
+                            ...filters,
+                            category: [...filters.category, "Perfumes"],
+                          });
+                        }
+                      }}
+                    />
                     Perfumes
                   </label>
+
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={filters.category.includes("Body Mists")}
+                      onChange={() => {
+                        if (filters.category.includes("Body Mists")) {
+                          setFilters({
+                            ...filters,
+                            category: filters.category.filter(
+                              (item) => item !== "Body Mists",
+                            ),
+                          });
+                        } else {
+                          setFilters({
+                            ...filters,
+                            category: [...filters.category, "Body Mists"],
+                          });
+                        }
+                      }}
+                    />
                     Body Mists
                   </label>
+
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={filters.category.includes("Skincare")}
+                      onChange={() => {
+                        if (filters.category.includes("Skincare")) {
+                          setFilters({
+                            ...filters,
+                            category: filters.category.filter(
+                              (item) => item !== "Skincare",
+                            ),
+                          });
+                        } else {
+                          setFilters({
+                            ...filters,
+                            category: [...filters.category, "Skincare"],
+                          });
+                        }
+                      }}
+                    />
                     Skincare
                   </label>
                 </div>
@@ -57,11 +114,43 @@ const MobileFilter = ({ isOpen, onClose }) => {
                 <h3 className="font-medium mb-2">Brand</h3>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={filters.brand.includes("Dior")}
+                      onChange={() => {
+                        if (filters.brand.includes("Dior")) {
+                          setFilters({
+                            ...filters,
+                            brand: filters.brand.filter((b) => b !== "Dior"),
+                          });
+                        } else {
+                          setFilters({
+                            ...filters,
+                            brand: [...filters.brand, "Dior"],
+                          });
+                        }
+                      }}
+                    />
                     Dior
                   </label>
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={filters.brand.includes("Nivea")}
+                      onChange={() => {
+                        if (filters.brand.includes("Nivea")) {
+                          setFilters({
+                            ...filters,
+                            brand: filters.brand.filter((b) => b !== "Nivea"),
+                          });
+                        } else {
+                          setFilters({
+                            ...filters,
+                            brand: [...filters.brand, "Nivea"],
+                          });
+                        }
+                      }}
+                    />
                     Nivea
                   </label>
                 </div>

@@ -8,6 +8,23 @@ import { useState } from "react";
 const Products = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+    const [filters, setFilters] = useState({
+      category: [],
+      brand: [],
+    });
+
+     const filteredProducts = products.filter((product) => {
+       const categoryMatch =
+         filters.category.length === 0 ||
+         filters.category.includes(product.category);
+
+       const brandMatch =
+         filters.brand.length === 0 || filters.brand.includes(product.brand);
+
+       return categoryMatch && brandMatch;
+     });
+
   return (
     <div>
       <Header setIsOpen={setIsOpen} />
@@ -15,6 +32,8 @@ const Products = () => {
       <MobileFilter
         isOpen={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
+        filters={filters}
+        setFilters={setFilters}
       />
 
       <div className="pt-24">
@@ -30,7 +49,7 @@ const Products = () => {
         <h1 className="m-5 font-bold text-3xl md:text-5xl border-gray-400 bg-linear-to-r from-blue-600 via-white to-purple-400 shadow-2xl rounded-2xl p-5 text-black">
           Our Products
         </h1>
-        <ProductList products={products} className="" />
+        <ProductList products={filteredProducts} />
       </div>
     </div>
   );
