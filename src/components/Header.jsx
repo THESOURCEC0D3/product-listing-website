@@ -24,7 +24,7 @@ const Header = ({setIsOpen}) => {
       </Link>
 
       <button onClick={() => setIsOpen(true)} className="md:hidden">
-        <Menu size={28} />
+        <Menu size={28} className="text-black"/>
       </button>
     </div>
   );

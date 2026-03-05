@@ -27,7 +27,7 @@ export default function MobileSidebar({ isOpen, setIsOpen }) {
             className="fixed top-0 right-0 h-screen w-64 bg-white z-50 p-6 shadow-xl"
           >
             <button onClick={() => setIsOpen(false)} className="mb-8">
-              <X size={28} />
+              <X size={28} className="text-black"/>
             </button>
 
             <nav className="flex flex-col gap-6 text-lg font-medium">
