@@ -25,7 +25,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
           >
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold">Filters</h2>
+              <h2 className="text-lg font-semibold text-black">Filters</h2>
               <button onClick={onClose}>
                 <X size={24} />
               </button>
@@ -35,10 +35,10 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
             <div className="space-y-6">
               {/* Category */}
               <div>
-                <h3 className="font-medium mb-2">Category</h3>
+                <h3 className="font-medium mb-2 text-black">Category</h3>
 
                 <div className="space-y-2">
-                  <label className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
                       checked={filters.category.includes("Perfumes")}
@@ -61,7 +61,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                     Perfumes
                   </label>
 
-                  <label className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
                       checked={filters.category.includes("Body Mists")}
@@ -84,7 +84,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                     Body Mists
                   </label>
 
-                  <label className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
                       checked={filters.category.includes("Skincare")}
@@ -111,9 +111,9 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
 
               {/* Brand */}
               <div>
-                <h3 className="font-medium mb-2">Brand</h3>
+                <h3 className="font-medium mb-2 text-black">Brand</h3>
                 <div className="space-y-2">
-                  <label className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
                       checked={filters.brand.includes("Dior")}
@@ -133,7 +133,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                     />
                     Dior
                   </label>
-                  <label className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-black">
                     <input
                       type="checkbox"
                       checked={filters.brand.includes("Nivea")}
@@ -158,7 +158,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
 
               {/* Price */}
               <div>
-                <h3 className="font-medium mb-2">Price</h3>
+                <h3 className="font-medium mb-2 text-black">Price</h3>
                 <input type="range" min="0" max="100000" className="w-full" />
               </div>
             </div>
