@@ -17,7 +17,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
 
           {/* Slide Panel */}
           <motion.div
-            className="fixed top-0 left-0 h-full w-110 bg-white z-50 shadow-xl p-6 overflow-y-auto"
+            className="fixed top-0 left-0 h-full w-90 bg-white z-50 shadow-xl p-6 overflow-y-auto"
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
@@ -61,12 +61,12 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                     Perfumes
                   </label>
                   {filters.category.includes("Perfumes") && (
-                    <div className="ml-5 mt-2 space-y-2">
-                      <p className="text-sm font-medium text-black">
+                    <div className="my-5 space-y-2">
+                      <p className="text-sm font-medium text-black text-left">
                         Gender(Optional)
                       </p>
 
-                      <div className="flex gap-3">
+                      <div className="flex gap-2">
                         <div>
                           <label className="flex items-center gap-2 text-black">
                             <input
@@ -91,8 +91,8 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                             Male
                           </label>
                           {filters.gender.includes("Male") && (
-                            <div className="ml-5 mt-2 space-y-2 ">
-                              <p className="text-sm font-medium text-black">
+                            <div className="mt-2 space-y-2 ">
+                              <p className="text-sm font-medium text-black text-left">
                                 Male Scents (Optional)
                               </p>
                               <div className="">
@@ -157,8 +157,8 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters }) => {
                             Female
                           </label>
                           {filters.gender.includes("Female") && (
-                            <div className="ml-5 mt-2 space-y-2 ">
-                              <p className="text-sm font-medium text-black">
+                            <div className="mt-2 space-y-2">
+                              <p className="text-sm font-medium text-black text-left">
                                 Female Scents (Optional)
                               </p>
                               <div className="">
