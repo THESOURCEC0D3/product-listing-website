@@ -8,7 +8,7 @@ Hello 👋
 I would like to order:
 
 Product: ${product.name}
-Price: R${product.price.toLocaleString()}
+Price: ₦${product.price.toLocaleString()}
 Product ID: ${product.id}
 
 Product Image:
