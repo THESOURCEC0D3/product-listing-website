@@ -18,6 +18,15 @@ const ProductList = ({ products }) => {
     skincare: "Skincare Products",
   };
 
+  if (products.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 text-center">
+        <p className="text-2xl font-semibold text-gray-500 mb-2">No products found</p>
+        <p className="text-gray-400">Try adjusting or clearing your filters.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-16 p-5">
       {Object.entries(groupedProducts).map(([category, items]) => (

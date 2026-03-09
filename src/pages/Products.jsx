@@ -4,6 +4,7 @@ import { products } from "../data/products";
 import MobileSidebar from "../components/MobileSidebar";
 import MobileFilter from "../components/MobileFilter";
 import DesktopFilter from "../components/DesktopFilter";
+import Footer from "../components/Footer";
 import { useState } from "react";
 
 const Products = () => {
@@ -83,7 +84,7 @@ const Products = () => {
   });
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header setIsOpen={setIsOpen} />
       <MobileSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
@@ -96,7 +97,7 @@ const Products = () => {
         maxPrice={maxPrice}
       />
 
-      <div className="pt-24 px-5">
+      <div className="flex-1 pt-24 px-5">
         <h1 className="font-bold text-3xl md:text-5xl border-gray-400 bg-linear-to-r from-blue-600 via-white to-purple-400 shadow-2xl rounded-2xl p-5 text-black mb-6">
           Our Products
         </h1>
@@ -121,6 +122,7 @@ const Products = () => {
           </div>
         </div>
       </div>
+      <Footer className="border"/>
     </div>
   );
 };
