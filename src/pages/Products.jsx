@@ -6,53 +6,98 @@ import MobileFilter from "../components/MobileFilter";
 import { useState } from "react";
 
 const Products = () => {
+  // Controls whether the mobile navigation sidebar (the menu) is open or closed
   const [isOpen, setIsOpen] = useState(false);
+
+  // Controls whether the filter panel is open or closed
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-    const [filters, setFilters] = useState({
-      category: [],
-      brand: [],
-      gender: [],
-      scent: [],
-    });
+  // Find the highest price across all products automatically.
+  // .map() pulls out just the price from every product → [15000, 40000, 95000, ...]
+  // Math.max(...) finds the biggest number in that list.
+  // This means if you ever add a ₦200,000 perfume, the slider max updates on its own.
+  const maxPrice = Math.max(...products.map((p) => p.price ?? 0));
 
-     const filteredProducts = products.filter((product) => {
-       const categoryMatch =
-         filters.category.length === 0 ||
-         filters.category.includes(product.category);
+  // This is our "filter box" — it holds all the choices the user has made in the filter panel
+  const [filters, setFilters] = useState({
+    category: [],    // e.g. ["Perfumes", "Body Sprays"] — which categories to show
+    brand: [],       // e.g. ["Dior"] — which brands to show
+    gender: [],      // e.g. ["Male", "Female"] — which genders to show
+    maleScent: [],   // scents selected under the Male section, e.g. ["Woody", "Spicy"]
+    femaleScent: [], // scents selected under the Female section, e.g. ["Floral"]
+    price: maxPrice, // starts at the highest price = show everything by default
+  });
 
-       const brandMatch =
-         filters.brand.length === 0 || filters.brand.includes(product.brand);
+  // Merge male and female scent selections into one combined list
+  // Example: maleScent = ["Woody"], femaleScent = ["Floral"] → allScents = ["Woody", "Floral"]
+  // We need this because the filter logic checks one combined list against each product
+  const allScents = [...filters.maleScent, ...filters.femaleScent];
 
-         const genderMatch =
-           filters.gender.length === 0 ||
-           filters.gender.includes(product.gender);
+  // Go through every product and keep only the ones that pass ALL active filters
+  const filteredProducts = products.filter((product) => {
 
-          const scentMatch =
-            filters.scent.length === 0 ||
-            filters.scent.some((selectedScent) =>
-              product.scent
-                ?.toLowerCase()
-                .includes(selectedScent.toLowerCase()),
-            );
+    // CATEGORY FILTER:
+    // If the user hasn't selected any category (length === 0), every product passes
+    // If they have selected categories, the product's category must be in that list
+    const categoryMatch =
+      filters.category.length === 0 ||
+      filters.category.includes(product.category);
 
-       return categoryMatch && brandMatch && genderMatch && scentMatch;
-     });
+    // BRAND FILTER:
+    // Same idea — no brand selected means all brands pass
+    // Otherwise the product's brand must be in the selected list
+    const brandMatch =
+      filters.brand.length === 0 || filters.brand.includes(product.brand);
+
+    // GENDER FILTER:
+    // No gender selected = all genders pass
+    // Otherwise the product's gender must be in the selected list
+    const genderMatch =
+      filters.gender.length === 0 ||
+      filters.gender.includes(product.gender);
+
+    // SCENT FILTER:
+    // If no scents are selected at all, every product passes
+    // Otherwise, check if the product's scent contains any of the selected scent words
+    // We use .some() which means "at least one of these must match"
+    // Example: product.scent = "Fresh Spicy", selectedScent = "Spicy"
+    //   → "fresh spicy".includes("spicy") → true ✓
+    // The ?. is "optional chaining" — if product.scent is undefined, it safely returns undefined
+    // instead of crashing. That way products without a scent field (like skincare) are handled.
+    const scentMatch =
+      allScents.length === 0 ||
+      allScents.some((selectedScent) =>
+        product.scent
+          ?.toLowerCase()
+          .includes(selectedScent.toLowerCase()),
+      );
+
+    // PRICE FILTER:
+    // The product's price must be less than or equal to the max price the user set on the slider
+    // The ?? 0 means: if the product has no price field, treat it as 0 (so it always passes)
+    const priceMatch = (product.price ?? 0) <= filters.price;
+
+    // A product only appears in the list if it passes EVERY single filter
+    return categoryMatch && brandMatch && genderMatch && scentMatch && priceMatch;
+  });
 
   return (
     <div>
       <Header setIsOpen={setIsOpen} />
       <MobileSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      {/* Pass filters and setFilters to the filter panel so it can read and update them */}
       <MobileFilter
         isOpen={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
         filters={filters}
         setFilters={setFilters}
+        maxPrice={maxPrice}
       />
 
       <div className="pt-24">
         <div className="flex justify-between items-center mb-4 p-5">
-          {/* <p>48 Products</p> */}
+          {/* This button only shows on mobile (md:hidden hides it on medium+ screens) */}
           <button
             onClick={() => setIsFilterOpen(true)}
             className="md:hidden px-4 py-2 bg-purple-600 text-white rounded-lg"
@@ -63,6 +108,8 @@ const Products = () => {
         <h1 className="m-5 font-bold text-3xl md:text-5xl border-gray-400 bg-linear-to-r from-blue-600 via-white to-purple-400 shadow-2xl rounded-2xl p-5 text-black">
           Our Products
         </h1>
+
+        {/* Pass the already-filtered list to ProductList — it only renders matching products */}
         <ProductList products={filteredProducts} />
       </div>
     </div>
