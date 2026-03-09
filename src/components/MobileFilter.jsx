@@ -334,7 +334,7 @@ const MobileFilter = ({ isOpen, onClose, filters, setFilters, maxPrice }) => {
                 <input
                   type="range"
                   min="0"
-                  max={maxPrice} {/* the slider ceiling always matches the most expensive product */}
+                  max={maxPrice} /* the slider ceiling always matches the most expensive product */
                   // "value" connects the slider position to our filter state
                   // Without this, the slider would not reflect the current filter value
                   value={filters.price}

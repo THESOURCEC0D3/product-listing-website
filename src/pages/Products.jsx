@@ -3,6 +3,7 @@ import ProductList from "../components/products/ProductList";
 import { products } from "../data/products";
 import MobileSidebar from "../components/MobileSidebar";
 import MobileFilter from "../components/MobileFilter";
+import DesktopFilter from "../components/DesktopFilter";
 import { useState } from "react";
 
 const Products = () => {
@@ -95,22 +96,30 @@ const Products = () => {
         maxPrice={maxPrice}
       />
 
-      <div className="pt-24">
-        <div className="flex justify-between items-center mb-4 p-5">
-          {/* This button only shows on mobile (md:hidden hides it on medium+ screens) */}
-          <button
-            onClick={() => setIsFilterOpen(true)}
-            className="md:hidden px-4 py-2 bg-purple-600 text-white rounded-lg"
-          >
-            Filter
-          </button>
-        </div>
-        <h1 className="m-5 font-bold text-3xl md:text-5xl border-gray-400 bg-linear-to-r from-blue-600 via-white to-purple-400 shadow-2xl rounded-2xl p-5 text-black">
+      <div className="pt-24 px-5">
+        <h1 className="font-bold text-3xl md:text-5xl border-gray-400 bg-linear-to-r from-blue-600 via-white to-purple-400 shadow-2xl rounded-2xl p-5 text-black mb-6">
           Our Products
         </h1>
 
-        {/* Pass the already-filtered list to ProductList — it only renders matching products */}
-        <ProductList products={filteredProducts} />
+        {/* Mobile filter button — hidden on desktop */}
+        <button
+          onClick={() => setIsFilterOpen(true)}
+          className="md:hidden mb-4 px-4 py-2 bg-purple-600 text-white rounded-lg"
+        >
+          Filter
+        </button>
+
+        {/* Side-by-side layout on desktop, stacked on mobile */}
+        <div className="flex gap-6 items-start">
+          <DesktopFilter
+            filters={filters}
+            setFilters={setFilters}
+            maxPrice={maxPrice}
+          />
+          <div className="flex-1">
+            <ProductList products={filteredProducts} />
+          </div>
+        </div>
       </div>
     </div>
   );
